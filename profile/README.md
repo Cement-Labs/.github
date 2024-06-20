@@ -1,1 +1,1 @@
-# Cement Labs
+![Cement Labs](../artwork/Dark.png)
