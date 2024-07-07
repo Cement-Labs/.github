@@ -5,7 +5,7 @@
       srcset="https://github.com/Cement-Labs/.github/blob/artwork/logo/white/logo.png"
       />
     <img
-      height="72"
+      width="256"
       src="https://github.com/Cement-Labs/.github/blob/artwork/logo/black/logo.png"
       />
   </picture>
