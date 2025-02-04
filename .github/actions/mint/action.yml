@@ -1,0 +1,24 @@
+# https://medium.com/nerd-for-tech/use-a-swift-command-line-tool-in-a-github-workflow-69d0331886b1
+name: Install Swift Packages with Mint
+description: Install and cache Mint for future steps
+
+runs:
+  using: composite
+  steps:
+    - name: Cache/Restore Mint packages
+      id: mint-cache
+      uses: actions/cache@v4
+      with:
+        path: ${{ github.workspace }}/mint
+        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        restore-keys: ${{ runner.os }}-mint-
+
+    - name: Upgrade or install Mint
+      shell: bash
+      run: |
+        brew upgrade mint || brew install mint || true
+
+    - name: Install Swift packages specified in `Mintfile` (if not yet cached)
+      if: steps.mint-cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: mint bootstrap

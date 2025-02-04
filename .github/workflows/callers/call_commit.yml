@@ -1,9 +1,0 @@
-name: Commit Changes
-
-on: [ pull_request, push, workflow_dispatch ]
-
-jobs:
-  call-workflow:
-    uses: Cement-Labs/.github/.github/workflows/commit.yml@main
-    with:
-      commit_message: ""
