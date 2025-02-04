@@ -6,4 +6,4 @@ jobs:
   call-workflow:
     uses: Cement-Labs/.github/.github/workflows/commit.yml@main
     with:
-      commit-message: ""
+      commit_message: ""
