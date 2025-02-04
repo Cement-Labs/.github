@@ -1,5 +1,5 @@
 # https://medium.com/nerd-for-tech/use-a-swift-command-line-tool-in-a-github-workflow-69d0331886b1
-name: SwiftFormat Lint
+name: SwiftFormat lint
 
 on:
   workflow_call:
