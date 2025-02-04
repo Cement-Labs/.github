@@ -1,5 +1,5 @@
 # https://medium.com/nerd-for-tech/use-a-swift-command-line-tool-in-a-github-workflow-69d0331886b1
-name: SwiftFormat Lint
+name: Install Swift Packages with Mint
 
 on:
   workflow_call:
@@ -23,9 +23,6 @@ jobs:
         run: |
             brew upgrade mint || brew install mint || true
             
-      - name: Install SwiftFormat (if not yet cached)
+      - name: Install Swift packages specified in `Mintfile` (if not yet cached)
         if: steps.mint-cache.outputs.cache-hit != 'true'
         run: mint bootstrap
-        
-      - name: Run SwiftFormat
-        run: mint run swiftformat --verbose .
